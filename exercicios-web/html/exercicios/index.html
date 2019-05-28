@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html class="no-js"> 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Meu Primeiro site</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <header>
+            <h1>Edemilson</h1>
+        </header>
+        <nav>
+            <a href wm-nav="exercicios/text.html">00 - Teste</a>
+            <a href wm-nav="exercicios/texto1.html">01 - Texto 1</a>
+            <a href wm-nav="exercicios/texto2.html">02 - Texto 2</a>
+            <a href wm-nav="exercicios/Listas.html">03 - Listas</a>
+            <a href wm-nav="curso-js/exercicios/ListaAninhada.html">04 - Lista Aninhada</a>
+            <a href wm-nav="exercicios/links.html">05 - Links</a>
+            <a href wm-nav="exercicios/tabela.html">06 - Tabela</a>
+            <a href wm-nav="exercicios/form.html">07 - Formulário</a>
+            <a href wm-nav="exercicios/imagens.html">08 - Imagens</a>
+        </nav>
+        <section id="conteudo"></section>
+        <footer>
+            <h4>Curso de Web Moderno</h4>
+        </footer>
+        
+        
+        
+        <script>
+            document.querySelectorAll('[wm-nav]').forEach(link => {
+                link.onclick = function(e){
+                    e.preventDefault() 
+
+                    const conteudo = document.getElementById('conteudo')
+                    fetch(link.href)
+                        .then(resp => resp.text())
+                        .then(html => conteudo.innerHTML = html)
+                }
+            })
+        </script>
+    </body>
+</html>
+
